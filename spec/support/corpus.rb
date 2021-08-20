@@ -2,11 +2,11 @@
 
 require 'anima'
 require 'morpher'
-require 'mutant'
+require 'mutation'
 require 'parallel'
 
 # @api private
-module MutantSpec
+module MutationSpec
   ROOT = Pathname.new(__FILE__).parent.parent.parent
 
   # Namespace module for corpus testing
@@ -56,10 +56,10 @@ module MutantSpec
         checkout
         Dir.chdir(repo_path) do
           Bundler.with_clean_env do
-            install_mutant
+            install_mutation
             system(
               %W[
-                bundle exec mutant
+                bundle exec mutation
                 --use #{integration}
                 --include lib
                 --require #{name}
@@ -90,7 +90,7 @@ module MutantSpec
       #   otherwise
       def verify_mutation_generation
         checkout
-        start = Mutant::Timer.now
+        start = Mutation::Timer.now
 
         options = {
           finish:       method(:finish),
@@ -101,7 +101,7 @@ module MutantSpec
         total = Parallel.map(effective_ruby_paths, options, &method(:check_generation))
           .inject(DEFAULT_MUTATION_COUNT, :+)
 
-        took = Mutant::Timer.now - start
+        took = Mutation::Timer.now - start
         puts MUTATION_GENERATION_MESSAGE % [total, took, total / took]
         self
       end
@@ -146,7 +146,7 @@ module MutantSpec
         node = Parser::CurrentRuby.parse(path.read)
         fail "Cannot parse: #{path}" unless node
 
-        mutations = Mutant::Mutator.mutate(node)
+        mutations = Mutation::Mutator.mutate(node)
 
         mutations.each do |mutation|
           check_generation_invariants(node, mutation)
@@ -175,9 +175,9 @@ module MutantSpec
         original_source = Unparser.unparse(original)
         mutation_source = Unparser.unparse(mutation)
 
-        Mutant::Diff.build(original_source, mutation_source) and return
+        Mutation::Diff.build(original_source, mutation_source) and return
 
-        fail Mutant::Reporter::CLI::NO_DIFF_MESSAGE % [
+        fail Mutation::Reporter::CLI::NO_DIFF_MESSAGE % [
           original_source,
           original.inspect,
           mutation_source,
@@ -185,16 +185,16 @@ module MutantSpec
         ]
       end
 
-      # Install mutant
+      # Install mutation
       #
       # @return [undefined]
-      def install_mutant
+      def install_mutation
         return if noinstall?
         relative = ROOT.relative_path_from(repo_path)
         repo_path.join('Gemfile').open('a') do |file|
-          file << "gem 'mutant', path: '#{relative}'\n"
-          file << "gem 'mutant-rspec', path: '#{relative}'\n"
-          file << "gem 'mutant-minitest', path: '#{relative}'\n"
+          file << "gem 'mutation', path: '#{relative}'\n"
+          file << "gem 'mutation-rspec', path: '#{relative}'\n"
+          file << "gem 'mutation-minitest', path: '#{relative}'\n"
           file << "eval_gemfile File.expand_path('#{relative.join('Gemfile.shared')}')\n"
         end
         lockfile = repo_path.join('Gemfile.lock')
@@ -365,4 +365,4 @@ module MutantSpec
       ALL = LOADER.call(YAML.load_file(ROOT.join('spec', 'integrations.yml')))
     end # Project
   end # Corpus
-end # MutantSpec
+end # MutationSpec

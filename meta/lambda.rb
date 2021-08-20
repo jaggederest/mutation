@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :block, :lambda do
+Mutation::Meta::Example.add :block, :lambda do
   source '->() {}'
 
   singleton_mutations
@@ -8,7 +8,7 @@ Mutant::Meta::Example.add :block, :lambda do
   mutation '->() { raise }'
 end
 
-Mutant::Meta::Example.add :block, :lambda do
+Mutation::Meta::Example.add :block, :lambda do
   source '->() { foo.bar }'
 
   singleton_mutations

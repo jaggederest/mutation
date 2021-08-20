@@ -6,21 +6,21 @@ Devtools.init_rake_tasks
 
 Rake.application.load_imports
 
-task('metrics:mutant').clear
+task('metrics:mutation').clear
 namespace :metrics do
-  task mutant: :coverage do
+  task mutation: :coverage do
     arguments = %w[
-      bundle exec mutant
+      bundle exec mutation
       --include lib
       --since HEAD~1
-      --require mutant
+      --require mutation
       --use rspec
       --zombie
     ]
     arguments.concat(%w[--jobs 4]) if ENV.key?('CIRCLECI')
 
-    arguments.concat(%w[-- Mutant*])
+    arguments.concat(%w[-- Mutation*])
 
-    Kernel.system(*arguments) or fail 'Mutant task is not successful'
+    Kernel.system(*arguments) or fail 'Mutation task is not successful'
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :int do
+Mutation::Meta::Example.add :int do
   source '10'
 
   singleton_mutations

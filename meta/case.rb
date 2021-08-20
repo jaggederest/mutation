@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :case do
+Mutation::Meta::Example.add :case do
   source <<-RUBY
     case
     when true
@@ -31,7 +31,7 @@ Mutant::Meta::Example.add :case do
   RUBY
 end
 
-Mutant::Meta::Example.add :case do
+Mutation::Meta::Example.add :case do
   source <<-RUBY
     case condition
     when A

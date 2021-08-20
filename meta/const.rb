@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :const do
+Mutation::Meta::Example.add :const do
   source 'A::B::C'
 
   singleton_mutations
@@ -8,7 +8,7 @@ Mutant::Meta::Example.add :const do
   mutation 'C'
 end
 
-Mutant::Meta::Example.add :const do
+Mutation::Meta::Example.add :const do
   source 'A.foo'
 
   singleton_mutations

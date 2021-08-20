@@ -4,7 +4,7 @@ Limitations
 Subject
 -------
 
-Mutant cannot emit mutations for some subjects.
+Mutation cannot emit mutations for some subjects.
 
 * methods defined within a closure.  For example, methods defined using `module_eval`, `class_eval`,
   `define_method`, or `define_singleton_method`:

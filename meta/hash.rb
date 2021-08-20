@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :hash do
+Mutation::Meta::Example.add :hash do
   source '{true => true, false => false}'
 
   singleton_mutations

@@ -5,7 +5,7 @@ require 'equalizer'
 require 'memoizable'
 require 'ice_nine'
 
-module MutantSpec
+module MutationSpec
   class Warning
     def self.assert_no_warnings
       return if EXTRACTOR.warnings.empty?

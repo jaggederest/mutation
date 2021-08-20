@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :index do
+Mutation::Meta::Example.add :index do
   source 'self.foo[]'
 
   singleton_mutations
@@ -12,7 +12,7 @@ Mutant::Meta::Example.add :index do
   mutation 'foo[]'
 end
 
-Mutant::Meta::Example.add :index do
+Mutation::Meta::Example.add :index do
   source 'foo[1]'
 
   singleton_mutations
@@ -30,7 +30,7 @@ Mutant::Meta::Example.add :index do
   mutation 'foo[self]'
 end
 
-Mutant::Meta::Example.add :index do
+Mutation::Meta::Example.add :index do
   source 'foo[n..-2]'
 
   singleton_mutations
@@ -55,7 +55,7 @@ Mutant::Meta::Example.add :index do
   mutation 'foo[self..-2]'
 end
 
-Mutant::Meta::Example.add :index do
+Mutation::Meta::Example.add :index do
   source 'foo[n...-1]'
 
   singleton_mutations
@@ -78,7 +78,7 @@ Mutant::Meta::Example.add :index do
   mutation 'foo[self...-1]'
 end
 
-Mutant::Meta::Example.add :index do
+Mutation::Meta::Example.add :index do
   source 'foo[n..-1]'
 
   singleton_mutations
@@ -102,7 +102,7 @@ Mutant::Meta::Example.add :index do
   mutation 'foo.drop(n)'
 end
 
-Mutant::Meta::Example.add :index do
+Mutation::Meta::Example.add :index do
   source 'self[foo]'
 
   singleton_mutations
@@ -115,7 +115,7 @@ Mutant::Meta::Example.add :index do
   mutation 'foo'
 end
 
-Mutant::Meta::Example.add :index do
+Mutation::Meta::Example.add :index do
   source 'foo[*bar]'
 
   singleton_mutations

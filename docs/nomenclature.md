@@ -1,19 +1,19 @@
 Nomenclature
 ============
 
-The following explains several nouns you may experience in mutant's documentation.
+The following explains several nouns you may experience in mutation's documentation.
 It's a good idea to familiarize yourself before moving on.
 
 ## AST
 
 Acronym for [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree)
-and the level of abstraction mutant operates on.
+and the level of abstraction mutation operates on.
 
 ## Subject
 
 An addressable piece of code to be targeted for mutation testing.
 
-Mutant currently supports the following subjects:
+Mutation currently supports the following subjects:
 
 * Instance methods
 * Singleton (class) methods
@@ -23,14 +23,14 @@ implemented in the OSS version.
 
 ## Mutation operator
 
-A transformation applied to the AST of a subject. Mutant knows the following high level operator
+A transformation applied to the AST of a subject. Mutation knows the following high level operator
 classes:
 
 * Semantic Reduction
 * Orthogonal Replacement
 * [Noop](#neutral-noop-tests)
 
-An exhaustive list can be found in the [mutant-meta](https://github.com/mbj/mutant/tree/master/meta)
+An exhaustive list can be found in the [mutation-meta](https://github.com/jaggederest/mutation/tree/master/meta)
 subdirectory of the source.
 
 ## Mutation
@@ -41,7 +41,7 @@ hypothesis that ideally gets falsified by the tests.
 ## Insertion
 
 The process of inserting a mutation into the runtime environment.
-Mutant currently supports insertion via dynamically created monkeypatches.
+Mutation currently supports insertion via dynamically created monkeypatches.
 
 Other insertion strategies (such as "boot time") are possible but aren't implemented
 in the OSS version.
@@ -58,7 +58,7 @@ Examples of sources for leaks are
 * DB State
 * File system
 
-Natively, mutant offers fork isolation. This works for any state within the executing
+Natively, mutation offers fork isolation. This works for any state within the executing
 Ruby process. For all state reachable via IO, it's the test author's responsibility to
 provide proper isolation.
 
@@ -66,14 +66,14 @@ provide proper isolation.
 
 The method used to determine if a specific inserted mutation is covered by tests.
 
-Currently mutant supports integrations for:
+Currently mutation supports integrations for:
 
-* [mutant-rspec](/docs/mutant-rspec.md) for [rspec](https://rspec.info)
-* [mutant-minitest](/docs/mutant-minitest.md) for [minitest](https://github.com/seattlerb/minitest)
+* [mutation-rspec](/docs/mutation-rspec.md) for [rspec](https://rspec.info)
+* [mutation-minitest](/docs/mutation-minitest.md) for [minitest](https://github.com/seattlerb/minitest)
 
 ## Report
 
-Mutant currently provides two different reporters:
+Mutation currently provides two different reporters:
 
 * Progress (printed during mutation testing).
 * Summary (printed at the end of a finished analysis run)

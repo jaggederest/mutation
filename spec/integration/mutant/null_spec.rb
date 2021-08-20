@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe 'null integration', mutant: false do
+RSpec.describe 'null integration', mutation: false do
 
-  let(:base_cmd) { 'bundle exec mutant -I lib --require test_app "TestApp*"' }
+  let(:base_cmd) { 'bundle exec mutation -I lib --require test_app "TestApp*"' }
 
   around do |example|
     Dir.chdir(TestApp.root) do

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :casgn do
+Mutation::Meta::Example.add :casgn do
   source 'A = true'
 
   mutation 'A__MUTANT__ = true'
@@ -9,7 +9,7 @@ Mutant::Meta::Example.add :casgn do
   mutation 'remove_const :A'
 end
 
-Mutant::Meta::Example.add :casgn do
+Mutation::Meta::Example.add :casgn do
   source 'self::A = true'
 
   mutation 'self::A__MUTANT__ = true'
@@ -18,7 +18,7 @@ Mutant::Meta::Example.add :casgn do
   mutation 'self.remove_const :A'
 end
 
-Mutant::Meta::Example.add :casgn do
+Mutation::Meta::Example.add :casgn do
   source 'A &&= true'
 
   singleton_mutations

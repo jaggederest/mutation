@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :rescue do
+Mutation::Meta::Example.add :rescue do
   source 'begin; rescue ExceptionA, ExceptionB => error; true; end'
 
   singleton_mutations
@@ -13,7 +13,7 @@ Mutant::Meta::Example.add :rescue do
 
 end
 
-Mutant::Meta::Example.add :rescue do
+Mutation::Meta::Example.add :rescue do
   source 'begin; rescue SomeException => error; true; end'
 
   singleton_mutations
@@ -24,7 +24,7 @@ Mutant::Meta::Example.add :rescue do
   mutation 'begin; true; end'
 end
 
-Mutant::Meta::Example.add :rescue do
+Mutation::Meta::Example.add :rescue do
   source 'begin; rescue => error; true end'
 
   singleton_mutations
@@ -34,7 +34,7 @@ Mutant::Meta::Example.add :rescue do
   mutation 'begin; true; end'
 end
 
-Mutant::Meta::Example.add :rescue do
+Mutation::Meta::Example.add :rescue do
   source 'begin; rescue; true end'
 
   singleton_mutations
@@ -43,7 +43,7 @@ Mutant::Meta::Example.add :rescue do
   mutation 'begin; true end'
 end
 
-Mutant::Meta::Example.add :rescue do
+Mutation::Meta::Example.add :rescue do
   source 'begin; true; end'
 
   singleton_mutations
@@ -51,7 +51,7 @@ Mutant::Meta::Example.add :rescue do
   mutation 'begin; nil; end'
 end
 
-Mutant::Meta::Example.add :rescue do
+Mutation::Meta::Example.add :rescue do
   source 'def a; foo; rescue; bar; else; baz; end'
 
   # Mutate all bodies
@@ -81,7 +81,7 @@ Mutant::Meta::Example.add :rescue do
   mutation 'def a; super; end'
 end
 
-Mutant::Meta::Example.add :rescue do
+Mutation::Meta::Example.add :rescue do
   source 'begin; rescue; ensure; true; end'
 
   singleton_mutations

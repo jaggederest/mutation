@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :indexasgn do
+Mutation::Meta::Example.add :indexasgn do
   source 'foo[bar] = baz'
 
   singleton_mutations
@@ -19,7 +19,7 @@ Mutant::Meta::Example.add :indexasgn do
   mutation 'bar'
 end
 
-Mutant::Meta::Example.add :indexasgn, :op_asgn do
+Mutation::Meta::Example.add :indexasgn, :op_asgn do
   source 'self[foo] += bar'
 
   singleton_mutations

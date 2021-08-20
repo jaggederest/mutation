@@ -14,10 +14,10 @@ Mutation output is grouped by selection groups. Each group contains three sectio
    **Example**:
 
    ```text
-   Book#add_page:Book#add_page:/home/dev/mutant-examples/lib/book.rb:18
+   Book#add_page:Book#add_page:/home/dev/mutation-examples/lib/book.rb:18
    ```
 
-2. A list of specs that mutant ran to try to kill mutations for the current group.
+2. A list of specs that mutation ran to try to kill mutations for the current group.
 
    **Format**:
 
@@ -51,7 +51,7 @@ Mutation output is grouped by selection groups. Each group contains three sectio
    **Example**:
 
    ```diff
-   evil:Book#add_page:Book#add_page:/home/dev/mutant-examples/lib/book.rb:18:01f69
+   evil:Book#add_page:Book#add_page:/home/dev/mutation-examples/lib/book.rb:18:01f69
    @@ -1,6 +1,6 @@
     def add_page(page)
    -  @pages << page
@@ -60,7 +60,7 @@ Mutation output is grouped by selection groups. Each group contains three sectio
       self
     end
    -----------------------
-   evil:Book#add_page:Book#add_page:/home/dev/mutant-examples/lib/book.rb:18:b1ff2
+   evil:Book#add_page:Book#add_page:/home/dev/mutation-examples/lib/book.rb:18:b1ff2
    @@ -1,6 +1,6 @@
     def add_page(page)
    -  @pages << page
@@ -71,4 +71,4 @@ Mutation output is grouped by selection groups. Each group contains three sectio
    -----------------------
    ```
 
-At this time no machine readable output exists in the opensourced versions of mutant.
+At this time no machine readable output exists in the opensourced versions of mutation.

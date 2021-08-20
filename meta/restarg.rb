@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :restarg do
+Mutation::Meta::Example.add :restarg do
   source 'def foo(*bar); end'
 
   mutation 'def foo; end'

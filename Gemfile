@@ -2,6 +2,6 @@
 
 source 'https://rubygems.org'
 
-gemspec name: 'mutant'
+gemspec name: 'mutation'
 
 eval_gemfile File.expand_path('Gemfile.shared', __dir__)

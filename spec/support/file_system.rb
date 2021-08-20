@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MutantSpec
+module MutationSpec
   class FileState
     DEFAULTS = IceNine.deep_freeze(
       file:     false,
@@ -59,4 +59,4 @@ module MutantSpec
       FakePathname.new(self, Pathname.new(filename))
     end
   end # FileSystem
-end # MutantSpec
+end # MutationSpec

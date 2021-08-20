@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MutantSpec
+module MutationSpec
   # Not a real VM, just kidding. It connects the require / eval triggers
   # require semantics Zombifier relies on in a way we can avoid having to
   # mock around everywhere to test every detail.
@@ -82,4 +82,4 @@ module MutantSpec
       expected_events.slice!(0).handle(self, observation).return_value
     end
   end # RubyVM
-end # MutantSpec
+end # MutationSpec

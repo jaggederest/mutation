@@ -1,11 +1,11 @@
 Concurrency
 ===========
 
-By default, mutant will test mutations in parallel by running up
+By default, mutation will test mutations in parallel by running up
 to one process for each core on your system. You can control the
 number of processes created using the `-j/--jobs` argument.
 
-Mutant forks a new process for each mutation to be tested to prevent side
+Mutation forks a new process for each mutation to be tested to prevent side
 affects in your specs and the lack of thread safety in integrations from
 impacting the results.
 
@@ -13,7 +13,7 @@ Database
 --------
 
 If the code under test relies on a database, you may experience problems
-when running mutant because of conflicting data in the database. For
+when running mutation because of conflicting data in the database. For
 example, if you have a test like this:
 
 ```ruby

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :regexp do
+Mutation::Meta::Example.add :regexp do
   source '/foo/'
 
   singleton_mutations
   regexp_mutations
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutation::Meta::Example.add :regexp do
   source '/#{foo.bar}n/'
 
   singleton_mutations
@@ -19,7 +19,7 @@ Mutant::Meta::Example.add :regexp do
   mutation '/#{self}n/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutation::Meta::Example.add :regexp do
   source '/#{foo}/'
 
   singleton_mutations
@@ -29,7 +29,7 @@ Mutant::Meta::Example.add :regexp do
   mutation '/#{nil}/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutation::Meta::Example.add :regexp do
   source '/#{foo}#{nil}/'
 
   singleton_mutations
@@ -39,7 +39,7 @@ Mutant::Meta::Example.add :regexp do
   mutation '/#{self}#{nil}/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutation::Meta::Example.add :regexp do
   source '//'
 
   singleton_mutations
@@ -48,7 +48,7 @@ Mutant::Meta::Example.add :regexp do
   mutation '/nomatch\A/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutation::Meta::Example.add :regexp do
   source 'true if /foo/'
 
   singleton_mutations
@@ -66,7 +66,7 @@ Mutant::Meta::Example.add :regexp do
   mutation 'true if /nomatch\A/'
 end
 
-Mutant::Meta::Example.add :regexp do
+Mutation::Meta::Example.add :regexp do
   source '/(?(1)(foo)(bar))/'
 
   singleton_mutations
@@ -77,7 +77,7 @@ Mutant::Meta::Example.add :regexp do
 end
 
 # Case where MRI would accept an expression but regexp_parser not.
-Mutant::Meta::Example.add :regexp do
+Mutation::Meta::Example.add :regexp do
   source '/u{/'
 
   singleton_mutations

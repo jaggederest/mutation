@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :regexp_eos_anchor do
+Mutation::Meta::Example.add :regexp_eos_anchor do
   source '/\z/'
 
   singleton_mutations

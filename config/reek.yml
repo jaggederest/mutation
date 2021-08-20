@@ -12,7 +12,7 @@ detectors:
   ControlParameter:
     enabled: true
     exclude:
-    - Mutant::Expression#match_length
+    - Mutation::Expression#match_length
   DataClump:
     enabled: true
     exclude: []
@@ -32,8 +32,8 @@ detectors:
   LongParameterList:
     enabled: true
     exclude:
-    - Mutant::Matcher::Method::Instance#self.build
-    - Mutant::Meta::Example::DSL # 3 vars
+    - Mutation::Matcher::Method::Instance#self.build
+    - Mutation::Meta::Example::DSL # 3 vars
     max_params: 2
   LongYieldList:
     enabled: true
@@ -42,14 +42,14 @@ detectors:
   NestedIterators:
     enabled: true
     exclude:
-    - Mutant#self.singleton_subclass_instance
-    - Mutant::CLI#parse
-    - Mutant::Mutator::Node::Arguments#emit_argument_mutations
-    - Mutant::Mutator::Node::Resbody#mutate_captures
-    - Mutant::Mutator::Util::Array::Element#dispatch
-    - Mutant::Parallel::Master#run
-    - Mutant::RequireHighjack#self.call
-    - Mutant::Selector::Expression#call
+    - Mutation#self.singleton_subclass_instance
+    - Mutation::CLI#parse
+    - Mutation::Mutator::Node::Arguments#emit_argument_mutations
+    - Mutation::Mutator::Node::Resbody#mutate_captures
+    - Mutation::Mutator::Util::Array::Element#dispatch
+    - Mutation::Parallel::Master#run
+    - Mutation::RequireHighjack#self.call
+    - Mutation::Selector::Expression#call
     - Parser::Lexer#self.new
     max_allowed_nesting: 1
     ignore_iterators: []
@@ -58,38 +58,38 @@ detectors:
   RepeatedConditional:
     enabled: true
     exclude:
-    - Mutant::Mutator
-    - Mutant::Meta::Example::DSL
+    - Mutation::Mutator
+    - Mutation::Meta::Example::DSL
     max_ifs: 1
   TooManyInstanceVariables:
     enabled: true
     exclude:
-    - Mutant::Mutator # 4 vars
-    - Mutant::Parallel::Master # 4 vars
-    - Mutant::Meta::Example::DSL # 4 vars
+    - Mutation::Mutator # 4 vars
+    - Mutation::Parallel::Master # 4 vars
+    - Mutation::Meta::Example::DSL # 4 vars
     max_instance_variables: 3
   TooManyMethods:
     enabled: true
     exclude:
-    - Mutant::CLI
-    - Mutant::Mutator::Node
-    - Mutant::Parallel::Master
+    - Mutation::CLI
+    - Mutation::Mutator::Node
+    - Mutation::Parallel::Master
     max_methods: 10
   TooManyStatements:
     enabled: true
     exclude:
-    - Mutant::CLI#add_debug_options
-    - Mutant::CLI#add_environment_options
-    - Mutant::Reporter::CLI::Printer::Config#run
-    - Mutant::Reporter::CLI::Printer::EnvProgress#run
-    - Mutant::Runner#run_driver
-    - Mutant::Zombifier::File#self.find
+    - Mutation::CLI#add_debug_options
+    - Mutation::CLI#add_environment_options
+    - Mutation::Reporter::CLI::Printer::Config#run
+    - Mutation::Reporter::CLI::Printer::EnvProgress#run
+    - Mutation::Runner#run_driver
+    - Mutation::Zombifier::File#self.find
     max_statements: 7
   UncommunicativeMethodName:
     enabled: true
     exclude:
-    - Mutant::AST::Sexp#s
-    - Mutant::Mutation#sha1
+    - Mutation::AST::Sexp#s
+    - Mutation::Mutation#sha1
     reject:
     - '/^[a-z]$/'
     - '/[0-9]$/'
@@ -124,13 +124,13 @@ detectors:
   UtilityFunction:
     enabled: true
     exclude:
-    - Mutant::AST::Sexp#s
-    - Mutant::CLI#reporter
-    - Mutant::Integration::Null#call
-    - Mutant::Integration::Rspec#parse_example
-    - Mutant::Integration::Rspec#parse_expression # intentional, private
-    - Mutant::Meta::Example::Verification#format_mutations # intentional, private
-    - Mutant::Reporter::CLI::Format::Progressive#new_buffer
-    - Mutant::Reporter::CLI::Printer::StatusProgressive#object # False positive calls super
-    - Mutant::Repository::Diff#tracks? # intentional, private
-    - Mutant::Repository::Diff#within_working_directory? # intentional, private
+    - Mutation::AST::Sexp#s
+    - Mutation::CLI#reporter
+    - Mutation::Integration::Null#call
+    - Mutation::Integration::Rspec#parse_example
+    - Mutation::Integration::Rspec#parse_expression # intentional, private
+    - Mutation::Meta::Example::Verification#format_mutations # intentional, private
+    - Mutation::Reporter::CLI::Format::Progressive#new_buffer
+    - Mutation::Reporter::CLI::Printer::StatusProgressive#object # False positive calls super
+    - Mutation::Repository::Diff#tracks? # intentional, private
+    - Mutation::Repository::Diff#within_working_directory? # intentional, private

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :while do
+Mutation::Meta::Example.add :while do
   source 'while true; foo; bar; end'
 
   singleton_mutations
@@ -16,7 +16,7 @@ Mutant::Meta::Example.add :while do
   mutation 'while true;  raise; end'
 end
 
-Mutant::Meta::Example.add :while do
+Mutation::Meta::Example.add :while do
   source 'while true; end'
 
   singleton_mutations

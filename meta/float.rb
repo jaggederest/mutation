@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :float do
+Mutation::Meta::Example.add :float do
   source '10.0'
 
   singleton_mutations
@@ -16,7 +16,7 @@ Mutant::Meta::Example.add :float do
   mutation '-10.0'
 end
 
-Mutant::Meta::Example.add :float do
+Mutation::Meta::Example.add :float do
   source '0.0'
 
   singleton_mutations
@@ -26,7 +26,7 @@ Mutant::Meta::Example.add :float do
   mutation '(-1.0 / 0.0)'
 end
 
-Mutant::Meta::Example.add :float do
+Mutation::Meta::Example.add :float do
   source '-0.0'
 
   singleton_mutations

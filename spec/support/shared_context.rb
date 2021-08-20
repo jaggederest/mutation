@@ -28,24 +28,24 @@ module SharedContext
   # rubocop:disable MethodLength
   # rubocop:disable AbcSize
   def setup_shared_context
-    let(:mutation_a)      { Mutant::Mutation::Evil.new(subject_a, mutation_a_node)   }
+    let(:mutation_a)      { Mutation::Mutation::Evil.new(subject_a, mutation_a_node)   }
     let(:mutation_a_node) { s(:false)                                                }
-    let(:mutation_b)      { Mutant::Mutation::Evil.new(subject_a, mutation_b_node)   }
+    let(:mutation_b)      { Mutation::Mutation::Evil.new(subject_a, mutation_b_node)   }
     let(:mutation_b_node) { s(:nil)                                                  }
     let(:mutations)       { [mutation_a, mutation_b]                                 }
     let(:output)          { StringIO.new                                             }
     let(:subject_a_node)  { s(:true)                                                 }
-    let(:test_a)          { instance_double(Mutant::Test, identification: 'test-a')  }
+    let(:test_a)          { instance_double(Mutation::Test, identification: 'test-a')  }
 
     let(:job_a) do
-      Mutant::Parallel::Source::Job.new(
+      Mutation::Parallel::Source::Job.new(
         index:   0,
         payload: mutation_a
       )
     end
 
     let(:job_b) do
-      Mutant::Parallel::Source::Job.new(
+      Mutation::Parallel::Source::Job.new(
         index:   1,
         payload: mutation_b
       )
@@ -53,7 +53,7 @@ module SharedContext
 
     let(:env) do
       instance_double(
-        Mutant::Env,
+        Mutation::Env,
         config:     config,
         mutations:  mutations,
         selections: { subject_a => [test_a] },
@@ -62,7 +62,7 @@ module SharedContext
     end
 
     let(:status) do
-      Mutant::Parallel::Status.new(
+      Mutation::Parallel::Status.new(
         active_jobs: [].to_set,
         payload:     env_result,
         done:        true
@@ -70,15 +70,15 @@ module SharedContext
     end
 
     let(:config) do
-      Mutant::Config::DEFAULT.with(
+      Mutation::Config::DEFAULT.with(
         jobs:     1,
-        reporter: Mutant::Reporter::Null.new
+        reporter: Mutation::Reporter::Null.new
       )
     end
 
     let(:subject_a) do
       instance_double(
-        Mutant::Subject,
+        Mutation::Subject,
         node:           subject_a_node,
         source:         Unparser.unparse(subject_a_node),
         identification: 'subject-a'
@@ -90,7 +90,7 @@ module SharedContext
     end
 
     let(:env_result) do
-      Mutant::Result::Env.new(
+      Mutation::Result::Env.new(
         env:             env,
         runtime:         4.0,
         subject_results: [subject_a_result]
@@ -98,7 +98,7 @@ module SharedContext
     end
 
     let(:mutation_a_result) do
-      Mutant::Result::Mutation.new(
+      Mutation::Result::Mutation.new(
         mutation:         mutation_a,
         isolation_result: mutation_a_isolation_result,
         runtime:          1.0
@@ -106,7 +106,7 @@ module SharedContext
     end
 
     let(:mutation_b_result) do
-      Mutant::Result::Mutation.new(
+      Mutation::Result::Mutation.new(
         isolation_result: mutation_b_isolation_result,
         mutation:         mutation_b,
         runtime:          1.0
@@ -114,11 +114,11 @@ module SharedContext
     end
 
     let(:mutation_a_isolation_result) do
-      Mutant::Isolation::Result::Success.new(mutation_a_test_result)
+      Mutation::Isolation::Result::Success.new(mutation_a_test_result)
     end
 
     let(:mutation_a_test_result) do
-      Mutant::Result::Test.new(
+      Mutation::Result::Test.new(
         tests:   [test_a],
         passed:  false,
         runtime: 1.0,
@@ -127,7 +127,7 @@ module SharedContext
     end
 
     let(:mutation_b_test_result) do
-      Mutant::Result::Test.new(
+      Mutation::Result::Test.new(
         tests:   [test_a],
         passed:  false,
         runtime: 1.0,
@@ -136,11 +136,11 @@ module SharedContext
     end
 
     let(:mutation_b_isolation_result) do
-      Mutant::Isolation::Result::Success.new(mutation_b_test_result)
+      Mutation::Isolation::Result::Success.new(mutation_b_test_result)
     end
 
     let(:subject_a_result) do
-      Mutant::Result::Subject.new(
+      Mutation::Result::Subject.new(
         subject:          subject_a,
         tests:            [test_a],
         mutation_results: [mutation_a_result, mutation_b_result]

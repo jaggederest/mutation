@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :irange do
+Mutation::Meta::Example.add :irange do
   source '1..100'
 
   singleton_mutations
@@ -19,7 +19,7 @@ Mutant::Meta::Example.add :irange do
   mutation '1..-100'
 end
 
-Mutant::Meta::Example.add :erange do
+Mutation::Meta::Example.add :erange do
   source '1...100'
 
   singleton_mutations

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :array do
+Mutation::Meta::Example.add :array do
   source '[true]'
 
   singleton_mutations
@@ -10,7 +10,7 @@ Mutant::Meta::Example.add :array do
   mutation '[]'
 end
 
-Mutant::Meta::Example.add :array do
+Mutation::Meta::Example.add :array do
   source '[true, false]'
 
   singleton_mutations

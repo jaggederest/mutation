@@ -10,7 +10,7 @@ if ENV['COVERAGE'] == 'true'
     add_filter 'spec'
     add_filter 'vendor'
     add_filter 'test_app'
-    add_filter 'lib/mutant.rb' # simplecov bug not seeing default block is executed
+    add_filter 'lib/mutation.rb' # simplecov bug not seeing default block is executed
 
     minimum_coverage 100
   end
@@ -18,7 +18,7 @@ end
 
 # Require warning support first in order to catch any warnings emitted during boot
 require_relative './support/warning'
-$stderr = MutantSpec::Warning::EXTRACTOR
+$stderr = MutationSpec::Warning::EXTRACTOR
 
 require 'tempfile'
 require 'concord'
@@ -26,16 +26,16 @@ require 'anima'
 require 'adamantium'
 require 'devtools/spec_helper'
 require 'unparser/cli'
-require 'mutant'
-require 'mutant/meta'
+require 'mutation'
+require 'mutation/meta'
 
 $LOAD_PATH << File.join(TestApp.root, 'lib')
 
 require 'test_app'
 
 module Fixtures
-  TEST_CONFIG = Mutant::Config::DEFAULT.with(reporter: Mutant::Reporter::Null.new)
-  TEST_ENV    = Mutant::Env::Bootstrap.(TEST_CONFIG)
+  TEST_CONFIG = Mutation::Config::DEFAULT.with(reporter: Mutation::Reporter::Null.new)
+  TEST_ENV    = Mutation::Env::Bootstrap.(TEST_CONFIG)
 end # Fixtures
 
 module ParserHelper
@@ -48,7 +48,7 @@ module ParserHelper
   end
 
   def parse_expression(string)
-    Mutant::Config::DEFAULT.expression_parser.(string)
+    Mutation::Config::DEFAULT.expression_parser.(string)
   end
 end # ParserHelper
 
@@ -66,11 +66,11 @@ end # XSpecHelper
 RSpec.configure do |config|
   config.extend(SharedContext)
   config.include(ParserHelper)
-  config.include(Mutant::AST::Sexp)
+  config.include(Mutation::AST::Sexp)
   config.include(XSpecHelper)
 
   config.after(:suite) do
     $stderr = STDERR
-    MutantSpec::Warning.assert_no_warnings
+    MutationSpec::Warning.assert_no_warnings
   end
 end

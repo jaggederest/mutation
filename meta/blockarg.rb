@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :blockarg do
+Mutation::Meta::Example.add :blockarg do
   source 'foo { |&bar| }'
 
   singleton_mutations

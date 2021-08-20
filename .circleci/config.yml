@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: ~/mutant
+  working_directory: ~/mutation
   docker:
     - environment:
         MUTANT_JOBS: 4
@@ -37,12 +37,12 @@ jobs:
       - run: bundle install
       - run: bundle exec rake metrics:rubocop
       - run: bundle exec rake metrics:reek
-  mutant:
+  mutation:
     <<: *defaults
     steps:
       - checkout
       - run: bundle install
-      - run: bundle exec rake metrics:mutant
+      - run: bundle exec rake metrics:mutation
 workflows:
   version: 2
   test:
@@ -52,4 +52,4 @@ workflows:
       - integration_minitest
       - integration_mutation_generation
       - metrics
-      - mutant
+      - mutation

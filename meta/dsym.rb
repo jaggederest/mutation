@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mutant::Meta::Example.add :dsym do
+Mutation::Meta::Example.add :dsym do
   source ':"foo#{bar}baz"'
 
   singleton_mutations

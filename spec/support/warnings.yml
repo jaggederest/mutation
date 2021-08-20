@@ -1,5 +1,5 @@
 ---
-- "lib/mutant/subject/method/instance.rb:9: warning: undefining `initialize' may cause serious problems"
+- "lib/mutation/subject/method/instance.rb:9: warning: undefining `initialize' may cause serious problems"
 - 'lib/parallel.rb:222: warning: shadowing outer local variable - args'
 - 'lib/parallel.rb:227: warning: shadowing outer local variable - args'
 - 'lib/parser/lexer.rb:10836: warning: assigned but unused variable - testEof'
