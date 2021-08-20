@@ -2,5 +2,5 @@
 
 module Mutation
   # Current mutation version
-  VERSION = '0.8.25'
+  VERSION = '0.1.0'
 end # Mutation
