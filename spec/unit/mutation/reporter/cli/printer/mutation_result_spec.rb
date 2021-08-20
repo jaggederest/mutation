@@ -88,7 +88,7 @@ RSpec.describe Mutation::Reporter::CLI::Printer::MutationResult do
         with(:mutation_a_test_result) { { passed: false } }
 
         let(:mutation_a) do
-          Mutation::Mutation::Neutral.new(subject_a, s(:true))
+          ::Mutation::Mutation::Neutral.new(subject_a, s(:true))
         end
 
         it_reports(<<~REPORT)
@@ -108,7 +108,7 @@ RSpec.describe Mutation::Reporter::CLI::Printer::MutationResult do
         with(:mutation_a_test_result) { { passed: false } }
 
         let(:mutation_a) do
-          Mutation::Mutation::Noop.new(subject_a, s(:true))
+          ::Mutation::Mutation::Noop.new(subject_a, s(:true))
         end
 
         it_reports(<<~REPORT)

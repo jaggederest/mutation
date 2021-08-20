@@ -24,7 +24,7 @@ RSpec.describe Mutation::Env do
 
   let(:mutation) do
     instance_double(
-      Mutation::Mutation,
+      ::Mutation::Mutation,
       subject: mutation_subject
     )
   end

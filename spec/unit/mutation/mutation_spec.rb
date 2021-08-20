@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Mutation::Mutation do
+RSpec.describe ::Mutation::Mutation do
   let(:mutation_class) do
-    Class.new(Mutation::Mutation) do
+    Class.new(::Mutation::Mutation) do
       const_set(:SYMBOL, 'test')
       const_set(:TEST_PASS_SUCCESS, true)
     end

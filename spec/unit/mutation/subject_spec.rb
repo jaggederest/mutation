@@ -76,9 +76,9 @@ RSpec.describe Mutation::Subject do
 
     it 'generates neutral and evil mutations' do
       should eql([
-        Mutation::Mutation::Neutral.new(object, node),
-        Mutation::Mutation::Evil.new(object, mutation_a),
-        Mutation::Mutation::Evil.new(object, mutation_b)
+        ::Mutation::Mutation::Neutral.new(object, node),
+        ::Mutation::Mutation::Evil.new(object, mutation_a),
+        ::Mutation::Mutation::Evil.new(object, mutation_b)
       ])
     end
   end

@@ -28,14 +28,14 @@ module SharedContext
   # rubocop:disable MethodLength
   # rubocop:disable AbcSize
   def setup_shared_context
-    let(:mutation_a)      { Mutation::Mutation::Evil.new(subject_a, mutation_a_node)   }
+    let(:mutation_a)      { ::Mutation::Mutation::Evil.new(subject_a, mutation_a_node)   }
     let(:mutation_a_node) { s(:false)                                                }
-    let(:mutation_b)      { Mutation::Mutation::Evil.new(subject_a, mutation_b_node)   }
+    let(:mutation_b)      { ::Mutation::Mutation::Evil.new(subject_a, mutation_b_node)   }
     let(:mutation_b_node) { s(:nil)                                                  }
     let(:mutations)       { [mutation_a, mutation_b]                                 }
     let(:output)          { StringIO.new                                             }
     let(:subject_a_node)  { s(:true)                                                 }
-    let(:test_a)          { instance_double(Mutation::Test, identification: 'test-a')  }
+    let(:test_a)          { instance_double(::Mutation::Test, identification: 'test-a')  }
 
     let(:job_a) do
       Mutation::Parallel::Source::Job.new(

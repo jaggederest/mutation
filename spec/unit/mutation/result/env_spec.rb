@@ -16,7 +16,7 @@ RSpec.describe Mutation::Result::Env do
       Mutation::Env,
       config:    instance_double(Mutation::Config, fail_fast: fail_fast),
       subjects:  [instance_double(Mutation::Subject)],
-      mutations: [instance_double(Mutation::Mutation)]
+      mutations: [instance_double(::Mutation::Mutation)]
     )
   end
 

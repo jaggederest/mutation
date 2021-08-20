@@ -12,9 +12,9 @@ module Mutation
           delegate :mutation, :isolation_result
 
           MAP = {
-            Mutation::Mutation::Evil    => :evil_details,
-            Mutation::Mutation::Neutral => :neutral_details,
-            Mutation::Mutation::Noop    => :noop_details
+            ::Mutation::Mutation::Evil    => :evil_details,
+            ::Mutation::Mutation::Neutral => :neutral_details,
+            ::Mutation::Mutation::Noop    => :noop_details
           }.freeze
 
           NEUTRAL_MESSAGE = <<~'MESSAGE'

@@ -14,7 +14,7 @@ RSpec.describe Mutation::Meta::Example::Verification do
 
   let(:mutations) do
     generated_nodes.map do |node|
-      Mutation::Mutation::Evil.new(example, node)
+      ::Mutation::Mutation::Evil.new(example, node)
     end
   end
 

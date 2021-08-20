@@ -12,7 +12,7 @@ RSpec.describe Mutation::Result::Subject do
   let(:mutation_subject) do
     instance_double(
       Mutation::Subject,
-      mutations: mutation_results.map { instance_double(Mutation::Mutation) }
+      mutations: mutation_results.map { instance_double(::Mutation::Mutation) }
     )
   end
 

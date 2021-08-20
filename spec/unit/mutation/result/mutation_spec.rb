@@ -9,7 +9,7 @@ RSpec.describe Mutation::Result::Mutation do
     )
   end
 
-  let(:mutation) { instance_double(Mutation::Mutation) }
+  let(:mutation) { instance_double(::Mutation::Mutation) }
 
   let(:test_result) do
     instance_double(

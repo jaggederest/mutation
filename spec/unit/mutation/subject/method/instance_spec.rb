@@ -108,22 +108,22 @@ RSpec.describe Mutation::Subject::Method::Instance::Memoized do
 
     let(:expected) do
       [
-        Mutation::Mutation::Neutral.new(
+        ::Mutation::Mutation::Neutral.new(
           object,
           s(:begin,
             s(:def, :foo, s(:args)), s(:send, nil, :memoize, s(:args, s(:sym, :foo))))
         ),
-        Mutation::Mutation::Evil.new(
+        ::Mutation::Mutation::Evil.new(
           object,
           s(:begin,
             s(:def, :foo, s(:args), s(:send, nil, :raise)), s(:send, nil, :memoize, s(:args, s(:sym, :foo))))
         ),
-        Mutation::Mutation::Evil.new(
+        ::Mutation::Mutation::Evil.new(
           object,
           s(:begin,
             s(:def, :foo, s(:args), s(:zsuper)), s(:send, nil, :memoize, s(:args, s(:sym, :foo))))
         ),
-        Mutation::Mutation::Evil.new(
+        ::Mutation::Mutation::Evil.new(
           object,
           s(:begin,
             s(:def, :foo, s(:args), nil), s(:send, nil, :memoize, s(:args, s(:sym, :foo))))
